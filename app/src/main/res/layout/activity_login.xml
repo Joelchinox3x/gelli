@@ -56,8 +56,9 @@
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/username"
             android:inputType="textNoSuggestions"
-            android:hint="@string/username" />
+            android:text="@string/default_username" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,8 +87,9 @@
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/password"
             android:inputType="textPassword"
-            android:hint="@string/password" />
+            android:text="@string/default_password" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -116,8 +118,15 @@
             android:id="@+id/server"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/server"
             android:inputType="textUri"
-            android:hint="@string/server" />
+            android:text="@string/pickserver" />
+
+        <Spinner
+            android:id="@+id/server_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/server_options"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -230,4 +230,19 @@
     <string name="error_unexpected">An unexpected error occurred.</string>
     <string name="error_empty_username">Please fill in your username.</string>
 
+    <string name="default_username">discography</string>
+    <string name="default_password">123123</string>
+    <string name="pickserver">Escoje Tu Server</string>
+
+    <string-array name="server_options">
+        <item>Server Local</item>
+        <item>Server Internet</item>
+        <item>Server VPS</item>
+    </string-array>
+    <string-array name="server_urls">
+        <item>http://jys.com</item>
+        <item>http://200.58.256.31</item>
+        <item>http://vps.example.com</item>
+    </string-array>
+
 </resources>

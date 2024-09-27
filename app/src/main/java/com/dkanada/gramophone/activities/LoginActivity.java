@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.dkanada.gramophone.App;
@@ -43,8 +45,35 @@ public class LoginActivity extends AbsBaseActivity implements View.OnClickListen
 
         setUpToolbar();
         setUpOnClickListeners();
+        setUpSpinner();
 
         binding.login.setBackgroundColor(primaryColor);
+    }
+
+    private void setUpSpinner() {
+        // Obtener los arrays de opciones y URLs desde strings.xml
+        String[] serverOptions = getResources().getStringArray(R.array.server_options);
+        String[] serverUrls = getResources().getStringArray(R.array.server_urls);
+
+        // Crear el ArrayAdapter para el Spinner
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.server_options, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        binding.serverSpinner.setAdapter(adapter);
+
+        // Asignar el listener para el Spinner
+        binding.serverSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // Actualizar el TextInputEditText con la URL correspondiente según la posición
+                binding.server.setText(serverUrls[position]);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // No hacer nada si no se selecciona nada
+            }
+        });
     }
 
     private void setUpToolbar() {
